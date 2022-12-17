@@ -16,34 +16,34 @@ void swap(int *firtsValue, int *secondValue) {
 // Função de ordenação Cocktail
 void cocktailSort(int vector[], int vectorSize) {
 
-	/*
-	 * Variável responsável por controlar quando
+    /*
+     * Variável responsável por controlar quando
      * houve ou não trocas
-	 */
+     */
     bool swapped;
 
-	// Índice inicial de iteração com o vetor
+    // Índice inicial de iteração com o vetor
     int start = 0;
-
-	// Indíce final de iteração com o vetor
+    
+    // Indíce final de iteração com o vetor
     int end = vectorSize - 2;
 
     // Loop principal: enquanto houver trocas ele será relizado
     do {
 
-		/*
-		 * A cada iteração considera-se que não
+	/*
+	 * A cada iteração considera-se que não
          * houve trocas
-		 */
+	 */
         swapped = false;
 
-		/*
+	/*
          * Loop que move os maiores elementos
          * para o fim da lista
          */
         for (int i = start; i < end; i++) {
 
-			/*
+	    /*
              * Caso o valor de índice atual seja
              * maior que o valor de índice superior,
              * suas posições são trocadas
@@ -51,7 +51,7 @@ void cocktailSort(int vector[], int vectorSize) {
             if (vector[i] > vector[i + 1]) {
                 swap(&vector[i], &vector[i + 1]);
 
-				/*
+		/*
                  * Visto que houve troca, agora
                  * a variável swapped recebe o valor
                  * verdadeiro
@@ -61,7 +61,7 @@ void cocktailSort(int vector[], int vectorSize) {
 
         }
 				
-		/*
+	/*
          * Aqui é verificado se houve alguma troca.
          * Caso sim, é realizado o loop responsável
          * por levar os menores elementos para o
@@ -71,19 +71,19 @@ void cocktailSort(int vector[], int vectorSize) {
          */
         if (swapped) {
 
-			/*
-			 * Loop responsável 
+	    /*
+	     * Loop responsável 
              * por levar os menores elementos para o
              * início da lista
-			 */
+	     */
             for (int i = end; i >= start; i--) {
 
-				/*
-		         * Caso o valor de índice atual seja
-		         * maior que o valor de índice 
+		/*
+		 * Caso o valor de índice atual seja
+		 * maior que o valor de índice 
                  * superior, suas posições são 
                  * trocadas
-		         */
+		 */
                 if (vector[i] > vector[i + 1]) {
                     swap(&vector[i], &vector[i + 1]);
                    
