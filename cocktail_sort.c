@@ -105,6 +105,8 @@ void cocktailSort(int vector[], int vectorSize) {
 
         }
 
+	// Atualiza índice inicial de iteração, porque o menor valor 
+	// desse loop já está na posição correta
         start++;
 
     /*
