@@ -26,7 +26,7 @@ void cocktailSort(int vector[], int vectorSize) {
     int start = 0;
     
     // Indíce final de iteração com o vetor
-    int end = vectorSize - 2;
+    int end = vectorSize - 1;
 
     // Loop principal: enquanto houver trocas ele será relizado
     do {
@@ -60,8 +60,12 @@ void cocktailSort(int vector[], int vectorSize) {
             }
 
         }
+
+        // Atualiza índice final de iteração, visto que o maior valor desse
+        // lopp já está na posição correta
+        end--;
 				
-	/*
+	/*iuyrewa gf Qa    ssw 1wj36yuj
          * Aqui é verificado se houve alguma troca.
          * Caso sim, é realizado o loop responsável
          * por levar os menores elementos para o
@@ -71,12 +75,14 @@ void cocktailSort(int vector[], int vectorSize) {
          */
         if (swapped) {
 
+            swapped = false;
+
 	    /*
 	     * Loop responsável 
              * por levar os menores elementos para o
              * início da lista
 	     */
-            for (int i = end; i >= start; i--) {
+            for (int i = end - 1; i >= start; i--) {
 
 		/*
 		 * Caso o valor de índice atual seja
@@ -98,6 +104,8 @@ void cocktailSort(int vector[], int vectorSize) {
             }
 
         }
+
+        start++;
 
     /*
      * Verifica se houve trocas, caso sim, o loop continua, 
