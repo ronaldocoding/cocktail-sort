@@ -5,8 +5,6 @@
 
 #define ARRAY_SIZE 100000
 
-int array[ARRAY_SIZE];
-
 void showLog(char message[])
 {
     printf("[Log] %s\n", message);
@@ -22,14 +20,16 @@ int generateRandomNumber()
     return rand();
 }
 
-double calculateTime()
+double calculateTime(int array[])
 {
     clock_t start, end;
     double cpu_time_used;
 
     showLog("Start of the sorting");
     start = clock();
+
     cocktailSort(array, ARRAY_SIZE);
+    
     end = clock();
     showLog("End of the sorting");
 
@@ -42,7 +42,7 @@ int main()
 {
     srand(time(0));
 
-    int randomValue;
+    int array[ARRAY_SIZE], randomValue;
 
     // vetor totalmente ordenado decrescentemente
     showTitle("Example with descending sorted array");
@@ -56,7 +56,7 @@ int main()
         array[i] = randomValue - i;
     }
 
-    printf("It took %f seconds to sort the array\n", calculateTime());
+    printf("It took %f seconds to sort the array\n", calculateTime(array));
 
     // vetor totalmente ordenado crescentemente
     showTitle("Example with ascending sorted array");
@@ -70,7 +70,7 @@ int main()
         array[i] = randomValue + i;
     }
 
-    printf("It took %f seconds to sort the array\n", calculateTime());
+    printf("It took %f seconds to sort the array\n", calculateTime(array));
 
     // primeira metade ordenada crescente, segunda metade ordenada decrescentemente
     showTitle("Example with first half ascending, and second half descending array");
@@ -84,16 +84,13 @@ int main()
         array[i] = randomValue + i;
     }
 
-    showLog("Generating Random value 2");
-    randomValue = generateRandomNumber();
-
     showLog("creating second half with descending sorted array");
     for (int i = ARRAY_SIZE / 2; i < ARRAY_SIZE; i++)
     {
         array[i] = randomValue - i;
     }
 
-    printf("It took %f seconds to sort the array\n", calculateTime());
+    printf("It took %f seconds to sort the array\n", calculateTime(array));
     // primeira metade ordenada decrescente, segunda metade ordenada crescentemente
     showTitle("Example with first half descending, and second half ascending array");
 
@@ -106,16 +103,13 @@ int main()
         array[i] = randomValue - i;
     }
 
-    showLog("Generating Random value 2");
-    randomValue = generateRandomNumber();
-
     showLog("creating second half with ascending sorted array");
     for (int i = ARRAY_SIZE / 2; i < ARRAY_SIZE; i++)
     {
         array[i] = randomValue + i;
     }
 
-    printf("It took %f seconds to sort the array\n", calculateTime());
+    printf("It took %f seconds to sort the array\n", calculateTime(array));
     // elementos totalmente desordenados
     showTitle("Example with random array");
 
@@ -125,5 +119,5 @@ int main()
         array[i] = generateRandomNumber();
     }
 
-    printf("It took %f seconds to sort the array\n", calculateTime());
+    printf("It took %f seconds to sort the array\n", calculateTime(array));
 }
